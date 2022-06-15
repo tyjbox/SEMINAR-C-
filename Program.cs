@@ -487,6 +487,7 @@ Console.WriteLine($"More numbers entered 0: {Comparison(massiveNumbers)} ");
 
 // Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
 
+/*
 
 Console.Write($"Enter number: ");
 int number = Convert.ToInt32(Console.ReadLine());
@@ -501,6 +502,7 @@ while(number > 0)
 
 Console.Write((Binarynumber) + "  Your binary number");
 
+*/
 
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
 // значения b1, k1, b2 и k2 задаются пользователем.
@@ -552,3 +554,161 @@ InputCoefficients();
 OutputResponse(coeff);
 
 */
+
+
+// Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+
+/*
+
+Console.Write("Enter m: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Enter n: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+Console.Clear();
+Console.WriteLine($"m = {m}, n = {n}.");
+
+double[,] array = new double[m, n];
+
+CreateArrayDouble(array);
+
+WriteArray(array);
+
+Console.WriteLine();
+
+void CreateArrayDouble(double[,] array)
+{
+  for (int i = 0; i < m; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      array[i, j] = new Random().NextDouble() * 20 - 10;
+    }
+  }
+}
+
+void WriteArray (double[,] array)
+{
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        double alignNumber = Math.Round(array[i, j], 1);
+        Console.Write(alignNumber + " ");
+      }
+      Console.WriteLine();
+  }
+}
+
+
+
+// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+
+
+Console.Write("\nWe take the array from the task (№ 47).\n");
+Console.Write("Enter element position coordinates via , : ");
+
+string? positionElement = Console.ReadLine();
+positionElement = RemovingSpaces(positionElement);
+int[] position = ParserString(positionElement);
+
+if(position[0] <= m && position[1] <= n && position[0] >= 0 && position[1] >= 0) 
+{
+  double result = array[position[0]-1, position[1]-1];
+  Console.Write($"Element value: {result}");
+}
+else Console.Write($"There is no such element in the array.");
+
+int[] ParserString(string input)
+{
+  int countNumbers = 1;
+  for (int i = 0; i < input.Length; i++)
+  {
+      if (input[i] == ',')
+          countNumbers++;
+  }
+
+  int[] numbers = new int[countNumbers];
+
+  int numberIndex = 0;
+  for(int i = 0; i < input.Length; i++)
+  {
+    string subString = String.Empty;
+
+    while (input[i] != ',')
+    {
+      subString += input[i].ToString();
+      if (i >= input.Length - 1)
+        break;
+      i++;
+    }
+    numbers[numberIndex] = Convert.ToInt32(subString);
+    numberIndex++;
+  }
+
+  return numbers;
+}
+
+string RemovingSpaces (string input)
+{
+  string output = String.Empty;
+  for (int i = 0; i < input.Length; i++)
+  {
+    if (input[i] != ' ') 
+    {
+      output += input[i];
+    }
+  }
+  return output;
+}
+
+
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+
+
+Console.Write("\nWe take the array from the task (№ 47).\n, translating double в int32.\n");
+int[,] arrayWhole = new int[m, n];
+arrayWhole = TransformationArrayWhole(array);
+
+WriteArrayInt(arrayWhole);
+
+Console.Write($"\nArithmetic mean:\n");
+for (int i = 0; i < n; i++)
+{
+  double arithmeticMean = 0;
+  for (int j = 0; j < m; j++)
+  {
+    arithmeticMean += arrayWhole[j, i];
+  }
+  arithmeticMean = Math.Round(arithmeticMean / m, 1);
+  Console.WriteLine($"column № {i+1} {arithmeticMean}");
+}
+
+int[,] TransformationArrayWhole (double[,] array)
+{
+  int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
+  for (int i = 0; i < array.GetLength(0); i++)
+  {
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+      arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+    }
+  }
+  return arrayWhole;
+}
+
+void WriteArrayInt (int[,] arrayWhole)
+{
+for (int i = 0; i < m; i++)
+  {
+      for (int j = 0; j < n; j++)
+      {
+        Console.Write(arrayWhole[i, j] + " ");
+      }
+      Console.WriteLine();
+  }
+}
+
+*/
+
