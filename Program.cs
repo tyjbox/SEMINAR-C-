@@ -450,3 +450,105 @@ int[] arrayOfNumbers =  ArrayOfNumbers(seriesNew);
 PrintArry(arrayOfNumbers);
 
 */
+
+// Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+
+/*
+
+Console.Write($"Enter number М(amount number): ");
+int m = Convert.ToInt32(Console.ReadLine());
+int[] massiveNumbers = new int[m];
+
+void InputNumbers(int m)
+{
+for (int i = 0; i < m; i++)
+  {
+    Console.Write($"Enter {i+1} number: ");
+    massiveNumbers[i] = Convert.ToInt32(Console.ReadLine());
+  }
+}
+
+
+int Comparison(int[] massiveNumbers)
+{
+  int count = 0;
+  for (int i = 0; i < massiveNumbers.Length; i++)
+  {
+    if(massiveNumbers[i] > 0 ) count += 1; 
+  }
+  return count;
+}
+
+InputNumbers(m);
+
+Console.WriteLine($"More numbers entered 0: {Comparison(massiveNumbers)} ");
+
+*/
+
+// Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
+
+
+Console.Write($"Enter number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+string Binarynumber = string.Empty;
+
+while(number > 0)
+{
+  Binarynumber = (number % 2) + Binarynumber;
+  number/=2;
+}
+
+
+Console.Write((Binarynumber) + "  Your binary number");
+
+
+// Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; 
+// значения b1, k1, b2 и k2 задаются пользователем.
+
+/*
+
+double[,] coeff = new double[2, 2];
+double[] crossPoint = new double[2];
+
+void InputCoefficients()
+{
+  for (int i = 0; i < coeff.GetLength(0); i++)
+  {
+    Console.Write($"Enter odds {i+1} equations (y = k * x + b):\n");
+    for (int j = 0; j < coeff.GetLength(1); j++)
+    {
+      if(j==0) Console.Write($"Enter odds  k: ");
+      else Console.Write($"Enter odds b: ");
+      coeff[i,j] = Convert.ToInt32(Console.ReadLine());
+    }
+  }
+}
+
+double[] Decision(double[,] coeff)
+{
+  crossPoint[0] = (coeff[1,1] - coeff[0,1]) / (coeff[0,0] - coeff[1,0]);
+  crossPoint[1] = crossPoint[0] * coeff[0,0] + coeff[0,1];
+  return crossPoint;
+}
+
+void OutputResponse(double[,] coeff)
+{
+  if (coeff[0,0] == coeff[1,0] && coeff[0,1] == coeff[1,1]) 
+  {
+    Console.Write($"\nDirect match");
+  }
+  else if (coeff[0,0] == coeff[1,0] && coeff[0,1] != coeff[1,1]) 
+  {
+    Console.Write($"\nStraight lines are parallel");
+  }
+  else 
+  {
+    Decision(coeff);
+    Console.Write($"\nPoint of intersection of lines: ({crossPoint[0]}, {crossPoint[1]})");
+  }
+}
+
+InputCoefficients();
+OutputResponse(coeff);
+
+*/
