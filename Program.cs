@@ -309,7 +309,7 @@ double minNumber = arrayRealNumbers[0];
 
   */
 
-  // Задача 1: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+// Задача 1: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
 
 /*
 
@@ -332,7 +332,7 @@ double minNumber = arrayRealNumbers[0];
 
   */
 
-  // Задача 2: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
+// Задача 2: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
 /*
 
@@ -953,5 +953,59 @@ void SummOfNumbers(int num)
 
 SummOfNumbers(number);
 Console.Write($"Summ digital of number {sum}");
+
+*/
+// Задача 1:Задайте массив строк. Напишите программу, считает кол-во слов в массиве, начинающихся на гласную букву.
+
+/*
+
+int WordsCount(string[] array)
+{
+    int count = 0;
+    string vowels = "aeiouy";
+    for (int i = 0; i < array.Length; i++)
+    {
+        for (int j = 0; j < vowels.Length; j++)
+        {
+
+            if (array[i].ToLower()[0] == vowels[j])
+            {
+
+                count++;
+            }
+        }
+    }
+    return count;
+}
+string[] MyArray = { "qwe", "wer", "ert", "rty", "tyu" };
+Console.Write("Number of words in the array starting with a vowel => ");
+Console.WriteLine(WordsCount(MyArray));
+
+*/
+
+// Задача 2: Задайте массив строк. Напишите программу, которая генерирует новый массив, объединяя элементы исходного массива попарно.
+
+/*
+
+string[] UnitedList(string[] array)
+{
+    int newArray = array.Length / 2;
+    string[] finalArray = new string[newArray];
+    for(int i = 0, j = 0; i < array.Length - 1; i += 2, j++)
+    {
+        finalArray[j] = (array[i] + array[i + 1]);
+        if(array.Length % 2 != 0 && j == newArray - 2)
+        {
+            finalArray[newArray - 1] = array[array.Length-1];
+            break;
+        }
+    }
+    return finalArray;
+}
+string[] myArray = { "revo", "lusion",
+                       "auto", "mobile",
+                       "motor", "cycle",
+                       "bi", "cycle"};
+Console.WriteLine("{\"" + string.Join("\", \"", myArray)+ "\"" + " => " + "\"" + string.Join("\", \"", UnitedList(myArray)) + "\"}");
 
 */
