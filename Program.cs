@@ -896,3 +896,62 @@ void WriteArray (int[,] array)
 }
 
 */
+
+// Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
+
+/*
+
+Console.Clear();
+int m = InputNumbers("Enter m: ");
+int n = InputNumbers("Enter n: ");
+int temp = m;
+
+if (m > n) 
+{
+  m = n; 
+  n = temp;
+}
+
+PrintSumm(m, n, temp=0);
+
+void PrintSumm(int m, int n, int summ)
+{
+  summ = summ + n;
+  if (n <= m)
+  {
+    Console.Write($"Summ element= {summ} ");
+    return;
+  }
+  PrintSumm(m, n - 1, summ);
+}
+
+int InputNumbers(string input) 
+{
+  Console.Write(input);
+  int output = Convert.ToInt32(Console.ReadLine());
+  return output;
+}
+
+*/
+
+
+// Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
+
+/*
+Console.Write("Enter number: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int sum = 0;
+void SummOfNumbers(int num)
+{
+    if (num != 0)
+    {
+        sum += num % 10;
+        num = num / 10;
+        SummOfNumbers(num);
+    }
+}
+
+SummOfNumbers(number);
+Console.Write($"Summ digital of number {sum}");
+
+*/
